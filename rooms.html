@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rooms - Quill's & Crown's Hotel</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        
+        .rooms-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            background-color: #4d4c5c;
+        }
+        .room-card {
+            background: whitesmoke;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .room-card:hover {
+            transform: translateY(-5px);
+        }
+        .room-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .room-info {
+            padding: 15px;
+        }
+        .room-info h3 {
+            margin: 0 0 10px;
+            color: #26605b;
+        }
+        .room-info p {
+            margin: 0;
+            color: #666;
+        }
+        .book-now {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 15px;
+            background-color: #c16f3f;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .book-now:hover {
+            background-color: #a55a33;
+        }
+        .booking-summary {
+            background-color: #f5f5f5;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .booking-summary h2 {
+            color: #26605b;
+            margin-bottom: 15px;
+        }
+        .booking-summary ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .booking-summary li {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        .booking-summary li strong {
+            color: #c16f3f;
+        }
+    </style>
+    
+</head>
+<body>
+    <header class="header" id="navigation-menu">
+        <!-- Copy your existing header/navigation here -->
+    </header> 
+    <main class="container">
+        <section class="booking-summary" id="booking-summary">
+            <h2>Your Booking Details</h2>
+            <ul id="summary-list">
+                <!-- Booking details will be inserted here by JavaScript -->
+            </ul>
+        </section>
+    </main>
+    <main>
+        <h1 style="text-align: center; margin: 60px 0;font-size: 80px;border-top-left-radius: 0%;">Our Rooms</h1>
+        <div class="rooms-gallery">
+            <div class="room-card">
+                <img src="image/standard.jfif" alt="Standard Room">
+                <div class="room-info">
+                    <h3>Standard Room</h3>
+                    <p>Comfortable and cozy</p>
+                    <a href="book-confirm.html?room=standard&price=100" class="book-now">Book Now</a>
+                </div>
+            </div>
+            <div class="room-card">
+                <img src="image/deulex.jfif" alt="Deluxe Room">
+                <div class="room-info">
+                    <h3>Deluxe Room</h3>
+                    <p>Spacious with a view</p>
+                    <a href="book-confirm.html?room=deluxe&price=200" class="book-now">Book Now</a>
+                </div>
+            </div>
+            <div class="room-card">
+                <img src="image/suite.jfif" alt="Suite">
+                <div class="room-info">
+                    <h3>Suite</h3>
+                    <p>Luxurious and elegant</p>
+                    <a href="book-confirm.html?room=suite&price=350" class="book-now">Book Now</a>
+                </div>
+            </div>
+            <div class="room-card">
+                <img src="image/king room.jfif" alt="King Room">
+                <div class="room-info">
+                    <h3>King Room</h3>
+                    <p>Vintage & Royal</p>
+                    <a href="book-confirm.html?room=suite&price=400" class="book-now">Book Now</a>
+                </div>
+            </div>
+            <div class="room-card">
+                <img src="image/queen room.jfif" alt="Queen Room">
+                <div class="room-info">
+                    <h3>Queen Room</h3>
+                    <p>Vintage & Classy</p>
+                    <a href="book-confirm.html?room=suite&price=370" class="book-now">Book Now</a>
+                </div>
+            </div>
+            <div class="room-card">
+                <img src="image/penthouse suite.jfif" alt="Penthouse Suite">
+                <div class="room-info">
+                    <h3>Penthouse Suite</h3>
+                    <p>Spacious & Luxury</p>
+                    <a href="book-confirm.html?room=suite&price=900" class="book-now">Book Now</a>
+                </div>
+            </div>
+            <div class="room-card">
+                <img src="image/twin room.jfif" alt="Twin Room">
+                <div class="room-info">
+                    <h3>Twin Room</h3>
+                    <p>Perfect for Two</p>
+                    <a href="book-confirm.html?room=suite&price=500" class="book-now">Book Now</a>
+                </div>
+            </div>
+            <div class="room-card">
+                <img src="image/standard with mountain view.jfif" alt="Standard with Mountain View">
+                <div class="room-info">
+                    <h3>Standard with Mountain View</h3>
+                    <p>Beautiful View</p>
+                    <a href="book-confirm.html?room=suite&price=600" class="book-now">Book Now</a>
+                </div>
+            </div>
+            <!-- Add more room cards as needed -->
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: info@quillandcrown.com</p>
+                <p>Phone: +91 9845642188</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="rooms.html">Rooms</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-icon">FB</a>
+                    <a href="#" class="social-icon">TW</a>
+                    <a href="#" class="social-icon">IG</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Quill's & Crown's Hotel. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const urlParams = new URLSearchParams(window.location.search);
+          const checkIn = urlParams.get('check-in');
+          const checkOut = urlParams.get('check-out');
+          const adults = urlParams.get('adults');
+          const children = urlParams.get('children');
+        
+          if (checkIn && checkOut && adults) {
+            const searchInfo = document.createElement('div');
+            searchInfo.innerHTML = `
+              <h2>Your Search:</h2>
+              <p>Check-in: ${checkIn}</p>
+              <p>Check-out: ${checkOut}</p>
+              <p>Adults: ${adults}</p>
+              <p>Children: ${children || '0'}</p>
+            `;
+            document.querySelector('main').insertBefore(searchInfo, document.querySelector('.rooms-gallery'));
+          }
+        });
+        </script>
+         <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const params = new URLSearchParams(window.location.search);
+                const summaryList = document.getElementById('summary-list');
+                
+                const checkIn = params.get('check-in');
+                const checkOut = params.get('check-out');
+                const adults = params.get('adults');
+                const children = params.get('children');
+    
+                if (checkIn && checkOut && adults && children) {
+                    summaryList.innerHTML = `
+                        <li><strong>Check-in:</strong> ${checkIn}</li>
+                        <li><strong>Check-out:</strong> ${checkOut}</li>
+                        <li><strong>Adults:</strong> ${adults}</li>
+                        <li><strong>Children:</strong> ${children}</li>
+                    `;
+                } else {
+                    document.querySelector('.booking-summary').style.display = 'none';
+                }
+            });
+        </script>
+</body>
+</html>

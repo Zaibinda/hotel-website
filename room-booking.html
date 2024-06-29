@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Booking - Quill's & Crown's Hotel</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* ... (keep the existing styles) ... */
+    </style>
+</head>
+<body>
+    <header class="header" id="navigation-menu">
+        <!-- Copy your existing header/navigation here -->
+    </header>
+
+    <main class="room-booking">
+        <h1>Room Booking</h1>
+        <div id="selected-room"></div>
+        <div class="room-option">
+            <h3>Standard Room</h3>
+            <p>Comfortable room with basic amenities. Perfect for short stays.</p>
+            <p>Price: $100 per night</p>
+            <button class="book-btn" onclick="addToCart('Standard Room', 100)">Add to Cart</button>
+        </div>
+        <div class="room-option">
+            <h3>Deluxe Room</h3>
+            <p>Spacious room with premium amenities and city view.</p>
+            <p>Price: $200 per night</p>
+            <button class="book-btn" onclick="addToCart('Deluxe Room', 200)">Add to Cart</button>
+        </div>
+        <div class="room-option">
+            <h3>Suite</h3>
+            <p>Luxurious suite with separate living area and ocean view.</p>
+            <p>Price: $350 per night</p>
+            <button class="book-btn" onclick="addToCart('Suite', 350)">Add to Cart</button>
+        </div>
+    </main>
+
+    <div id="cart">
+        <h2>Your Cart</h2>
+        <ul id="cart-items"></ul>
+        <p>Total: $<span id="cart-total">0</span></p>
+    </div>
+
+    <script>
+        let cart = [];
+        
+        function addToCart(room, price) {
+            cart.push({room, price});
+            updateCart();
+        }
+        
+        function updateCart() {
+            const cartItems = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+            cartItems.innerHTML = '';
+            let total = 0;
+            cart.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `${item.room} - $${item.price}`;
+                cartItems.appendChild(li);
+                total += item.price;
+            });
+            cartTotal.textContent = total;
+        }
+
+        // New function to handle room selection
+        function selectRoom() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const room = urlParams.get('room');
+            const selectedRoomDiv = document.getElementById('selected-room');
+            
+            if (room) {
+                let roomName, roomPrice;
+                switch(room) {
+                    case 'standard':
+                        roomName = 'Standard Room';
+                        roomPrice = 100;
+                        break;
+                    case 'deluxe':
+                        roomName = 'Deluxe Room';
+                        roomPrice = 200;
+                        break;
+                    case 'suite':
+                        roomName = 'Suite';
+                        roomPrice = 350;
+                        break;
+                    default:
+                        roomName = 'Unknown Room';
+                        roomPrice = 0;
+                }
+                
+                selectedRoomDiv.innerHTML = `
+                    <h2>Selected Room: ${roomName}</h2>
+                    <p>Price: $${roomPrice} per night</p>
+                    <button class="book-btn" onclick="addToCart('${roomName}', ${roomPrice})">Add to Cart</button>
+                `;
+                
+                // Scroll to the selected room
+                selectedRoomDiv.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Call selectRoom when the page loads
+        window.onload = selectRoom;
+    </script>
+</body>
+</html>
